@@ -40,8 +40,9 @@ pnpm build
 See `.env.example` for all options. Key ones:
 
 - `HERMES_API_URL` — Hermes Agent gateway backend (default: `http://127.0.0.1:8642`)
-- `CLAUDE_PASSWORD` — Optional password protection for the web UI
-- `CLAUDE_ALLOWED_HOSTS` — Comma-separated hostnames for non-localhost access
+- `HERMES_PASSWORD` — Optional password protection for the web UI (required before binding off-loopback via `HOST=0.0.0.0`). Legacy `CLAUDE_PASSWORD` is still honored for back-compat.
+- `HOST` — Bind address; defaults to `127.0.0.1`. Set `0.0.0.0` for LAN/Tailscale exposure (requires `HERMES_PASSWORD`).
+- `HERMES_ALLOW_INSECURE_REMOTE` — Set to `0`/`1` to control plain-HTTP remote binding (fail-closed by default).
 
 ## Guidelines
 

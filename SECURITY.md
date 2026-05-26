@@ -25,11 +25,11 @@ We will acknowledge your report within 48 hours and aim to provide a fix within 
 - Third-party dependencies (report to the respective maintainer)
 - Social engineering attacks
 
-## Security Measures (v3.0.0+)
+## Security Measures (v2.0.0+)
 
 **Authentication**
 
-- All API routes require authentication as of v3.0.0
+- All API routes require authentication as of v2.0.0
 - Session tokens use timing-safe comparison to prevent timing attacks
 - httpOnly + SameSite=Strict cookies
 - Token revocation on logout
@@ -74,8 +74,8 @@ We will acknowledge your report within 48 hours and aim to provide a fix within 
 
 ## Supported Versions
 
-| Version     | Supported              |
-| ----------- | ---------------------- |
-| v3.x (main) | ✅ Active              |
-| v2.x        | ⚠️ Security fixes only |
-| < v2.0      | ❌ Unsupported         |
+| Version       | Supported              |
+| ------------- | ---------------------- |
+| 2.3.x (main)  | ✅ Active              |
+| 2.0.x – 2.2.x | ⚠️ Security fixes only |
+| < 2.0         | ❌ Unsupported         |

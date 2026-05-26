@@ -17,31 +17,31 @@ Use these names in all new UI, docs, skills, prompts, tests, review comments, an
 
 Do **not** introduce these in new work unless quoting legacy history or compatibility behavior:
 
-- Hermes Workspace
-- Hermes Agent
+- Claude Workspace
+- Claude Agent
 - Claude swarm
 - Claude-native paths
-- `HERMES_HOME`
-- `~/.hermes`
+- `CLAUDE_HOME`
+- `~/.claude`
 
 ## Legacy compatibility rule
 
 If older code, docs, tests, or handoffs contain Claude-era wording, treat it as legacy residue.
 
 Default action:
-- normalize it to Claude naming
-- preserve old wording only when explicitly documenting migration or backwards compatibility
+- normalize it to Hermes naming
+- preserve old wording only when explicitly documenting migration or backwards compatibility (e.g. the `CLAUDE_HOME` / `CLAUDE_PASSWORD` fallbacks that the runtime still honors for pre-rename setups)
 
 ## Runtime/path rules
 
-For Claude-native runtime work, prefer:
+For Hermes-native runtime work, prefer:
 
 - `HERMES_HOME`
 - `~/.hermes/profiles/<workerId>`
-- `claude`
+- `hermes`
 - Hermes worker sessions
 
-Do not suggest Claude-specific runtime wrappers or profile paths for live Hermes Workspace behavior.
+Do not suggest Claude-specific runtime wrappers or profile paths for live Hermes Workspace behavior. (`CLAUDE_HOME` and `~/.claude` remain valid only as documented back-compat fallbacks, not as the canonical target.)
 
 ## Swarm/UI language rules
 
@@ -64,7 +64,9 @@ Any PR or patch that introduces new Claude-branded naming into Hermes Workspace 
 ## Agent instruction rule
 
 When an agent is working in this repo:
-- assume Claude naming is canonical
-- rewrite Claude-era references to Claude by default
+- assume Hermes naming is canonical
+- rewrite Claude-era references to Hermes by default
 - do not invent Claude-branded paths, products, or wrapper guidance
-- if uncertain, prefer repo-native Claude terminology over historical aliases
+- if uncertain, prefer repo-native Hermes terminology over historical aliases
+
+> Note: "Claude" is still a legitimate **model provider** name in this product (e.g. Claude models served via the gateway, OAuth credentials at `~/.claude/.credentials.json`). This contract governs the **product brand** ("Hermes Workspace" / "Hermes Agent"), not references to Claude as a third-party model.
