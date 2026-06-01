@@ -328,7 +328,7 @@ hermes dashboard       # terminal 2 · :9119 · sessions, skills, config, MCP
 cd ~/hermes-workspace && pnpm dev   # terminal 3 · :3000 · the UI
 ```
 
-> **Tip:** `pnpm start:all` starts gateway + dashboard + workspace in one shot if you've installed via the one-liner.
+> **Tip:** `pnpm start:all` starts the gateway + workspace in one shot if you've installed via the one-liner. (Run `hermes dashboard` separately if you want the dashboard surfaces.)
 
 ### Windows (PowerShell + WSL) one-command startup
 
@@ -443,13 +443,13 @@ This pulls two pre-built images and starts them:
 
 No local build. First run takes a minute to pull; subsequent starts are instant.
 Agent state (config, sessions, skills, memory, credentials) persists in the
-legacy-named `claude-data` Docker volume, so containers can be recreated without data loss.
+`hermes-agent-data` Docker volume, so containers can be recreated without data loss.
 
 ### Step 3: Access the Workspace
 
 Open `http://localhost:3000` and complete the onboarding.
 
-> **Verify:** Check the Docker logs for `[gateway] Connected to Hermes Agent` — this confirms the workspace successfully connected to the agent.
+> **Verify:** Check the Docker logs for `[gateway] Connected to Hermes gateway at` — this confirms the workspace successfully connected to the agent.
 
 ### Remote Access (LAN / Tailscale / VPN)
 
