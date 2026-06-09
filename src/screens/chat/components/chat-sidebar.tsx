@@ -6,6 +6,7 @@ import {
   BrainIcon,
   Building01Icon,
   Castle02Icon,
+  ChartLineData02Icon,
   Chat01Icon,
   CheckListIcon,
   Clock01Icon,
@@ -584,6 +585,7 @@ function ChatSidebarComponent({
   const isJobsActive = pathname === '/jobs'
   const isMemoryActive = pathname === '/memory'
   const isTasksActive = pathname === '/tasks'
+  const isTokenBurnActive = pathname === '/token-burn'
   const isConductorActive = pathname === '/conductor'
   const isOperationsActive = pathname === '/operations'
   const isSwarmActive = pathname === '/swarm' || pathname === '/swarm2'
@@ -826,6 +828,13 @@ function ChatSidebarComponent({
       icon: CheckListIcon,
       label: 'Tasks',
       active: isTasksActive,
+    },
+    {
+      kind: 'link',
+      to: '/token-burn',
+      icon: ChartLineData02Icon,
+      label: 'Token Burn',
+      active: isTokenBurnActive,
     },
     {
       kind: 'link',

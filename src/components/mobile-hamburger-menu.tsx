@@ -5,6 +5,7 @@ import {
   Building01Icon,
   Cancel01Icon,
   Castle02Icon,
+  ChartLineData02Icon,
   Chat01Icon,
   Clock01Icon,
   CommandLineIcon,
@@ -42,6 +43,13 @@ export const MOBILE_HAMBURGER_NAV_ITEMS = [
     icon: DashboardSquare01Icon,
     to: '/dashboard',
     match: (p: string) => p.startsWith('/dashboard'),
+  },
+  {
+    id: 'token-burn',
+    label: 'Token Burn',
+    icon: ChartLineData02Icon,
+    to: '/token-burn',
+    match: (p: string) => p.startsWith('/token-burn'),
   },
   {
     id: 'playground',
