@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorldRouteImport } from './routes/world'
 import { Route as VtCapitalRouteImport } from './routes/vt-capital'
+import { Route as TokenBurnRouteImport } from './routes/token-burn'
 import { Route as TerminalRouteImport } from './routes/terminal'
 import { Route as TasksRouteImport } from './routes/tasks'
 import { Route as Swarm2RouteImport } from './routes/swarm2'
@@ -178,6 +179,11 @@ const WorldRoute = WorldRouteImport.update({
 const VtCapitalRoute = VtCapitalRouteImport.update({
   id: '/vt-capital',
   path: '/vt-capital',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TokenBurnRoute = TokenBurnRouteImport.update({
+  id: '/token-burn',
+  path: '/token-burn',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TerminalRoute = TerminalRouteImport.update({
@@ -1002,6 +1008,7 @@ export interface FileRoutesByFullPath {
   '/swarm2': typeof Swarm2Route
   '/tasks': typeof TasksRoute
   '/terminal': typeof TerminalRoute
+  '/token-burn': typeof TokenBurnRoute
   '/vt-capital': typeof VtCapitalRoute
   '/world': typeof WorldRoute
   '/api/agent-bus': typeof ApiAgentBusRoute
@@ -1163,6 +1170,7 @@ export interface FileRoutesByTo {
   '/swarm2': typeof Swarm2Route
   '/tasks': typeof TasksRoute
   '/terminal': typeof TerminalRoute
+  '/token-burn': typeof TokenBurnRoute
   '/vt-capital': typeof VtCapitalRoute
   '/world': typeof WorldRoute
   '/api/agent-bus': typeof ApiAgentBusRoute
@@ -1326,6 +1334,7 @@ export interface FileRoutesById {
   '/swarm2': typeof Swarm2Route
   '/tasks': typeof TasksRoute
   '/terminal': typeof TerminalRoute
+  '/token-burn': typeof TokenBurnRoute
   '/vt-capital': typeof VtCapitalRoute
   '/world': typeof WorldRoute
   '/api/agent-bus': typeof ApiAgentBusRoute
@@ -1490,6 +1499,7 @@ export interface FileRouteTypes {
     | '/swarm2'
     | '/tasks'
     | '/terminal'
+    | '/token-burn'
     | '/vt-capital'
     | '/world'
     | '/api/agent-bus'
@@ -1651,6 +1661,7 @@ export interface FileRouteTypes {
     | '/swarm2'
     | '/tasks'
     | '/terminal'
+    | '/token-burn'
     | '/vt-capital'
     | '/world'
     | '/api/agent-bus'
@@ -1813,6 +1824,7 @@ export interface FileRouteTypes {
     | '/swarm2'
     | '/tasks'
     | '/terminal'
+    | '/token-burn'
     | '/vt-capital'
     | '/world'
     | '/api/agent-bus'
@@ -1976,6 +1988,7 @@ export interface RootRouteChildren {
   Swarm2Route: typeof Swarm2Route
   TasksRoute: typeof TasksRoute
   TerminalRoute: typeof TerminalRoute
+  TokenBurnRoute: typeof TokenBurnRoute
   VtCapitalRoute: typeof VtCapitalRoute
   WorldRoute: typeof WorldRoute
   ApiAgentBusRoute: typeof ApiAgentBusRoute
@@ -2099,6 +2112,13 @@ declare module '@tanstack/react-router' {
       path: '/vt-capital'
       fullPath: '/vt-capital'
       preLoaderRoute: typeof VtCapitalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/token-burn': {
+      id: '/token-burn'
+      path: '/token-burn'
+      fullPath: '/token-burn'
+      preLoaderRoute: typeof TokenBurnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terminal': {
@@ -3445,6 +3465,7 @@ const rootRouteChildren: RootRouteChildren = {
   Swarm2Route: Swarm2Route,
   TasksRoute: TasksRoute,
   TerminalRoute: TerminalRoute,
+  TokenBurnRoute: TokenBurnRoute,
   VtCapitalRoute: VtCapitalRoute,
   WorldRoute: WorldRoute,
   ApiAgentBusRoute: ApiAgentBusRoute,
